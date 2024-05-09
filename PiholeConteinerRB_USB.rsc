@@ -1,3 +1,5 @@
+#RouterOS v7.12
+
 1 - New Terminal:
 
 ##Cria a Bridge para os conteiners
@@ -7,6 +9,9 @@ add name=brdg_Docker
 ##Será usada para atribuir ip da rede para o conteiner
 /interface veth
 add address=192.168.50.2/24 comment="Virtual Ethernet para o Pihole" gateway=192.168.50.1 gateway6="" name=veth_Pihole
+##Adiciona a veth na bridge
+/interface bridge port
+add bridge=brdg_Docker interface=veth_Pihole
 ##NAT para liberar internet para o Docker
 /ip firewall nat
 add action=masquerade chain=srcnat comment="NAT libera internet para o Docker" src-address=192.168.50.0/24
