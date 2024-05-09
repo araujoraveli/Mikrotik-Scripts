@@ -1,3 +1,6 @@
+# Scripts testados e usados no RouterOS v7.12
+# Preparando o pendrive ou HD externo USB para o uso na RB:
+
 1 - Inserir o pendrive/HD externo na RB.
 
 2 - System > Disks > Format Driver:
