@@ -1,16 +1,4 @@
-1 - Inserir o pendrive na RB.
-
-2 - System > Disks > Format Driver:
-
-	Slot: usb1 (ou o que aparecer)
-	File System: Ext4
-	Label: Nome sugestivo do disco/pendrive
-	[OK]
-	
-3 - Depois de formatado, ejete o pendrive pelo botão do lado do "Format Driver".
-	Remova o pendrive fisicamente, aguarde 5s, insira novamente na RB.
-	
-4 - New terminal:
+1 - New Terminal:
 
 ##Cria a Bridge para os conteiners
 /interface bridge
@@ -36,11 +24,11 @@ set registry-url=https://registry-1.docker.io tmpdir=usb1/pull
 ##Baixa a imagem e faz a a instalação utilizando os parametros definidos anteriormente
 /container add remote-image=pihole/pihole:latest interface=veth_Pihole root-dir=usb1/pihole mounts=dnsmasq_pihole,etc_pihole envlist=pihole
 
-5 - Conteiner > duplo clique no conteiner existente:
+2 - Conteiner > duplo clique no conteiner existente:
 	Aguarde a extração ser finalizada, quando finalizar vai aparecer em "Status" como "Stoped".
 	Marque a caixa "Start on boot" e clique no botão "Start".
 	Em "Status" aguarde até aparecer a mensagem "running".
 	
-6 - Pronto, só acessar o pihole usando o ip que definimos na "veth_Pihole" adicionando "/admin" 
+3 - Pronto, só acessar o pihole usando o ip que definimos na "veth_Pihole" adicionando "/admin" 
 	Ex: 192.168.50.2/admin
 	Logar com a senha definida em "key=WEBPASSWORD"
